@@ -49,6 +49,10 @@ def reply_llm(username: str, question: str) -> str:
     user_memory[username].append(f"Bot: {answer}")
     return answer
 
+def clear_memory(username):
+    if username in user_memory:
+        user_memory.pop(username)
+
 if __name__ == '__main__':
     username = "john_doe"
 

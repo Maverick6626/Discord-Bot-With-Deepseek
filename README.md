@@ -17,7 +17,7 @@ Before running the bot, you need to install the necessary Python libraries.
 git clone https://github.com/Maverick6626/Discord-Bot-With-Deepseek.git
 cd Discord-Bot-With-Deepseek
 ```
-### Add your Discord bot token in the .env file:
+### Step 2: Add your Discord bot token in the .env file:
 
 ```
 DISCORD_TOKEN=your_discord_token_here

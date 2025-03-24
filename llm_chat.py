@@ -34,10 +34,10 @@ def reply_llm(username: str, question: str) -> str:
     if username not in user_memory:
         user_memory[username] = []
     user_memory[username].append(f"User: {question}")
-
-    history = "\n".join(user_memory[username][-10:])  # Keep only the last 10 messages
+    if(len(user_memory[username])>10): # Keep only the last 10 messages
+        user_memory[username].pop(0)
+    history = "\n".join(user_memory[username])
     answer = friend_llm.invoke({"username": username, "history": history, "question": question})
-    user_memory[username].append(f"Bot: {answer}")
     c1, c2 = 0, 0
     for _ in answer:
         if _ == '>':
@@ -46,9 +46,8 @@ def reply_llm(username: str, question: str) -> str:
         if c1 == 2:
             break
     answer = answer[c2 + 1:]
-
+    user_memory[username].append(f"Bot: {answer}")
     return answer
-
 
 if __name__ == '__main__':
     username = "john_doe"

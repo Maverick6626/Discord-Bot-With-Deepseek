@@ -1,4 +1,4 @@
-from rude_chat import reply_llm
+from llm_chat import reply_llm
 from comp_and_insult import insult, compliment
 from random import randint
 
